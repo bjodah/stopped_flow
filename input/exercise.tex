@@ -1,0 +1,62 @@
+\input{inc/preamble_early}
+%\usepackage{xr-hyper} % needs to be loaded before hyperref
+\input{inc/preamble_mid}
+\usepackage{minted}
+
+% Minted matlab code
+\definecolor{mintedbackground}{rgb}{0.95,0.95,0.95}
+
+\newmintedfile[matlabcode]{matlab}{
+bgcolor=mintedbackground,
+fontfamily=tt,
+fontsize=\footnotesize,
+linenos=true,
+numberblanklines=true,
+numbersep=12pt,
+numbersep=5pt,
+gobble=0,
+frame=leftline,
+framerule=0.4pt,
+framesep=2mm,
+funcnamehighlighting=true,
+tabsize=4,
+obeytabs=false,
+mathescape=false
+samepage=false, %with this setting you can force the list to appear on the same page
+showspaces=false,
+showtabs =false,
+texcl=false,
+}
+%% Global Last Commands
+\usepackage[capitalise,noabbrev,swedish]{cleveref} % <--- Needs to be loaded late (see doc)
+\usepackage{listings}
+
+\lstnewenvironment{terminaloutput}{%
+  \lstset{backgroundcolor=\color{mintedbackground},
+  frame=single,
+  breaklines=true,
+  framerule=0pt,
+  basicstyle=\footnotesize\ttfamily,
+  columns=fullflexible}}{}
+
+\renewcommand{\thesection}{C\arabic{section}} % Bilaga
+
+\providecommand{\projecttitle}{Övningsuppgift -- Stopped flow \\ KD1080}
+\input{inc/set_title_author}
+
+\begin{document}
+ 
+  \input{inc/kth_titlepage}
+
+  % \tableofcontents
+  % \listoffigures
+  %\listoftables
+  % \pagebreak
+
+  \setlength{\parindent}{0em}
+  \setlength{\parskip}{1em}
+
+
+  \input{txt/C10_exercise}
+
+\end{document}
