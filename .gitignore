@@ -23,3 +23,5 @@ input/*/prv_*.fmt
 
 # output files put back into input for auctex to work
 input/derivations/*.tex
+
+exercise/.*/

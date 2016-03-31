@@ -1,5 +1,5 @@
 build:
-  image: bjodah/bjodahimg:v1.1
+  image: bjodah/bjodahimg:latest
   commands:
     - cd ./input
     - LABBPEK_IDX=2 ./build.sh
