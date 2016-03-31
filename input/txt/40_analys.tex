@@ -14,21 +14,21 @@ mätserier.
 
 För varje kombination av $T$ och $I$ kommer ni göra $n$ replikat. För
 varje replikat får ni från kurvanpassningen en uppskattning av
-hastighetskonstanten $k_i$ med en uppskattad osäkerhet
-($\sigma_i$). Dessa behandlar ni sedan statistiskt genom att ta ett
-viktat medelväre ($\bar{k}$) där ni använder den reciproka variansen som
-vikt ($w_i$):
+hastighetskonstanten $k_i$. Dessa behandlar ni sedan statistiskt genom
+att ta ett viktat medelväre ($\bar{k}$):
 \begin{align}
-  w_i &= \frac{1}{\sigma_i^2} \\
   \bar{k} &= \frac{\sum_i{w_i \cdot k_i}}{\sum_i{w_i}}
 \end{align}
-variansen ($D^2$) för det viktade medelvärdet ges då av:
+som vikt ($w_i$) brukar den reciproka variansen användas
+($\sigma_i^{-2}$), eller något som korrelerar med den, ett vanligt val är
+MAD (Mean Absolute Deviation). Variansen ($D^2$) för det viktade
+medelvärdet ($\bar{k}$) ges då av:
 \begin{align}
 %  D^2 &= \frac{1}{\sum_i 1/\sigma_i^2}
    D^2 &= \frac{\sum_i w_i(k_i - \bar{k})^2}{(n - 1)\sum_j w_j}
 \end{align}
 vid rapportering av $\bar{k}$ anges osäkerheten konventionellt som en
-standardavvikelse ($\sigma \approx \sqrt{D^2}$):
+standardavvikelse:
 \begin{align}
   k_f &= \bar{k} \pm \sqrt{D^2}
 \end{align}
