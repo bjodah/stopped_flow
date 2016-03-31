@@ -6,6 +6,9 @@ build:
     - cd -
     - mkdir -p deploy/$CI_BRANCH
     - cp input/main.pdf input/supp_mater.pdf deploy/$CI_BRANCH
+    - cd exercise; python _gen.py
+    - ipython2 nbconvert --to=html --debug --ExecutePreprocessor.enabled=True *.ipynb
+    - cp *.html ../deploy/
 
 deploy:
 
