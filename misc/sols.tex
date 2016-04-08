@@ -12,7 +12,6 @@ too fast
 invalid assumptions, (too slow)
 
 \section{I=0.05, 70\%}
-What's up
 \begin{align}
 \sqrt{0.05} - \sqrt{x} &= \frac{\log_{10}(7) - 1}{6A_{DH}} \\
 x = 0.0752
@@ -38,8 +37,9 @@ $ python free_Fe.py --pH 3
 
 \section{Binuclear hydroxide complex}
 \begin{verbatim}
-$ python binuclear_Fe.py --conc 7e-3
-0.000482093940668672
+$ python binuclear_Fe3.py --conc 7e-3
+[-0.00168267406107047 + 0.01*z/y, 0.0001*x/y**2 - 0.00154881661891248, 2*x + y + z - 0.007]
+{'Fe3+': 0.0052585761743377179, 'Fe2(OH)2+4': 0.00042828842649513069, 'FeOH+2': 0.00088484697267202062}
 \end{verbatim}
 
 \section{Good init conc.}
