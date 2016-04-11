@@ -12,22 +12,21 @@ s2 = [1.3 0.9 0.6 13.4 2.2]';
 % Låt oss först göra en oviktad minsta-kvadrat-anpassning:
 % A'A c = A'y
 A = [ones(size(x)), x];
-c_ols = A\y  % Matlab löser med hjälp av QR faktorisering
+c_ols = A\y  % (Matlab löser med hjälp SVD eller QR)
 r_ols = A*c_ols - y;
 
 % Formeln för WLS: (se Weighted least squares på e.g. wikipedia):
-%     c_wls = inv(B)*A'*W*y
-% där W & B ges av:
-W = diag(1.0./s2);
-B = A'*W*A;
+Aw = A./[s2 s2].^0.5;
+yw = (y./s2.^0.5);
+c_wls = Aw \ yw
 
-% Vi löser med Cholesky faktorisering
-% B är symmetrisk och positiv definit
-C = chol(B);
-c_wls = C\(C'\(A'*W*y))
+r_wls = Aw*c_wls - yw;
 
-r_wls = A*c_wls - y;
+% varians-kovarians matriser för parametrarna:
+size_x = size(x);
+nx = size_x(1);
+vcv_ols = r_ols'*r_ols ./ (nx - 2) .* inv(A'*A);
+vcv_wls = r_wls'*r_wls ./ (nx - 2) .* inv(Aw'*Aw);
 
-% Weighted Root Mean Square deviation
-wrmsd_ols = sqrt(sum((r_ols./s2).^2))
-wrmsd_wls = sqrt(sum((r_wls./s2).^2))  % skall vara lägre än *_ols
+stderr_ols = sqrt(diag(vcv_ols))
+stderr_wls = sqrt(diag(vcv_wls))
