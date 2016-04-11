@@ -9,6 +9,9 @@ out_*/
 .ipynb_checkpoints/
 
 misc/.config/
+misc/*.pdf
+misc/*.log
+misc/*.aux
 
 # auctex generated files:
 input/_region_.*
