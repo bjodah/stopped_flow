@@ -15,7 +15,7 @@ A = [ones(size(x)), x];
 c_ols = A\y  % (Matlab löser med hjälp SVD eller QR)
 r_ols = A*c_ols - y;
 
-% Formeln för WLS: (se Weighted least squares på e.g. wikipedia):
+% Formeln för WLS: (se Weighted least squares på wikipedia):
 Aw = A./[s2 s2].^0.5;
 yw = (y./s2.^0.5);
 c_wls = Aw \ yw

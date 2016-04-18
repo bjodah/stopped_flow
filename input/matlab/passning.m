@@ -10,31 +10,29 @@ g = @(p, x) (x.^p + 1);
 f = @(a, b, x) (a*g(b, x)./g(b+1, x));
 
 % Antag att f(t) är en observabel med mätosäkerhet
-% vi kan simulera detta med normalfördelat brus:
+% vi kan simulera detta med normalfördelat brus
+% (ni kommer istället att läsa in data från en textfil,
+% exempelvis mha. funktionen ``load``):
 N = 1000; t = linspace(0, 4, N);
 alpha = 2.0; beta = 3.0;
 rng('default'); % ger reproducerbara stokastiska värden
 y = f(alpha, beta, t) + random('Normal', 0, 0.1, 1, N);
 
-% För att läsa riktiga data från fil, använd ``load``:
-%    y = load("XdegC_Ymolal_3.txt")
-
 % Låt oss plotta mätdata:
 plot(t, y);
 
 % Låt se om kurvanpassning kan ge alpha och beta från
-% våra brusiga data i y. Syntax för fit(...):
+% våra brusiga data i y. Syntax för fit:
 % http://se.mathworks.com/help/curvefit/fit.html
 % Vi behöver anropa fittype med vår funktion, och sedan
 % använda det objektet i anrop på fit:
 ftyp = fittype(f);
 
-% fit vill ha kolumnvektorer, så vi transponerar t och y
-% [1, 1] är gissning för a och b, vilken kan behöva uppdateras
+% [1, 1] är gissning för a och b, gissningen kan behöva uppdateras
 [fitobj, gof, nfo] = fit(t', y', ftyp, 'StartPoint', [1, 1]);
 fitobj
 
-% Standard avvikelsen för resp. parameter fås genom:
+% Standardavvikelsen för resp. parameter fås genom:
 standard_deviation = diff(confint(fitobj, 0.6827))/2
 % 0.6827 är konfidensintervallet för 1 sigma (68–95–99.7 rule)
 
