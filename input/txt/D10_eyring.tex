@@ -1,0 +1,67 @@
+\section{Eyring-Teori}
+\label{sec:eyring}
+I laborationen utgår vi ifrån Arrhenius ekvation. I detta avsnitt
+skall vi titta närmare på Eyrings ekvation (även känd som Eyring-Polanyi ekavtionen)
+för en bimolekylär rekation:
+
+\begin{align}
+  \label{eq:ts}
+  \ce{A + B} & \ce{<=> TS -> P} \\
+  \label{eq:dpdt-propto}
+  \frac{d[\ce{P}]}{dt} &\propto [TS]
+\end{align}
+
+Inom Eyring-teorin gör vi ett antagande om en mycket snabb
+jämviktsinställning (steady-state) av vårt TS:
+
+\begin{equation}
+  \label{eq:ts-conc}
+  [\ce{TS}] = \frac{[A][B]}{c^\plimsoll}K^\ddagger
+\end{equation}
+
+Från statistisk termodynamik kan vi härleda ett uttryck för
+hastighetskonsanten för totalreaktionen:
+
+\begin{align}
+  \ce{A + B ->[k_2] P}
+\end{align}
+
+där $k_2$ då ges av:
+
+\begin{align}
+  \label{eq:eyring}
+  k_2 &= \frac{k_B T}{c^\plimsoll h} e^{\frac{\Delta S^\ddagger}{R}} e^{-\frac{\Delta H^\ddagger}{RT}}
+\end{align}
+
+jämför denna med Arrhenius ekvation:
+
+\begin{align}
+  \label{eq:arrhenius}
+  k_A &= A e^{-\frac{Ea}{RT}}
+\end{align}
+
+Notera att \cref{eq:eyring,eq:arrhenius} inte är ekvivalenta med avseende
+på temperaturberoende. 
+
+Om vi antar att $E_a \equiv \Delta H^\ddagger$ kan vi för ett litet
+temperaturintervall skriva:
+\begin{align}
+  A \approx& \frac{k_B T}{c^\plimsoll h} e^{\frac{\Delta S^\ddagger}{R}}\\
+  \frac{\Delta S^\ddagger}{R} \approx& \ln\left(\frac{c^\plimsoll h}{k_B}
+                                       \frac{A}{T}\right) 
+\end{align}
+
+Eftersom Eyring's ekvation är termodynamiskt härledd kan vi formulera ett
+uttryck för bakåtreaktionens hastighetskonstant (ifall vi känner $\Delta H$ och $\Delta S$
+för reaktionen):
+
+\begin{align}
+  k_b &= \frac{k_B T}{h} e^{\frac{\Delta S^\ddagger - \Delta S}{R}}
+        e^{-\frac{\Delta H^\ddagger - \Delta H}{RT}}
+\end{align}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../eyring"
+%%% ispell-local-dictionary: "swedish"
+%%% End:
