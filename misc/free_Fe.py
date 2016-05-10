@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import (absolute_import, division, print_function)
 
-from chempy.debye_huckel import limiting_log_gamma as g
+from chempy.electrolytes import limiting_log_gamma as g
 from math import exp
 
 def main(pH=3.0):
