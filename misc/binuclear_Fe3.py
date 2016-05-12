@@ -30,6 +30,12 @@ def main(conc=7e-3, pH=2.0, beta_a=-2.774, beta_b=-2.81):
     xout, sol = neqsys.solve([conc/3, conc/3, conc/3])
     print(dict(zip('Fe2(OH)2+4 Fe3+ FeOH+2'.split(), xout)))
 
+    # Simplified treatment:
+    neqsys2 = SymbolicSys([x, y], [eq2, 2*x + y - conc])
+    xout, sol = neqsys2.solve([conc/2, conc/2])
+    print(dict(zip('Fe2(OH)2+4 Fe3+'.split(), xout)))
+
+
 if __name__ == '__main__':
     try:
         import argh

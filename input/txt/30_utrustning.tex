@@ -17,7 +17,7 @@ Blandkammaren är termostaterad med hjälp av vattenbad som ni själva får
 välja temperatur för. Ni kan börja era försök vid
 rumstemperatur, temperaturintervallet ni kan arbeta inom styrs av
 temperaturen av kallvattnet i husets ledningar (säg \SI{15}{\celsius})
-och vattenbadets övre gräns (säg \SI{40}{\celsius}). 
+och hastigheten för reaktionen. 
 
 Kyvettens längd är \SI{1}{\centi\metre} (vilket
 tillsammans med extinktionskoefficienten  är något ni har nytta av att
@@ -28,7 +28,7 @@ skrivet i LabView. Handhavandet av programmet är beskrivet i
 \cref{sec:handhavande}. Från varje försök kommer ni att erhålla dataserier med
 absorbans som funktion av tid vid en våglängd som ni själva väljer. Dessa
 tidsserier kommer sparas i form av textfiler som ni sparar på USB minne
-som ni själva tar med er till labb.
+som ni själva tar med er till laborationstillfället.
 
 \subsection{Stamlösningar}
 För att bereda era två reaktantlösningar kommer ni att ha tillgång till följande
@@ -63,17 +63,18 @@ millisekunder i programmet.
 \begin{itemize}
 \item Tänd spektrofotometerns lampa minst 5 minuter innan mätningarna.
 \item Kontrollera att vattennivån är inom de markerade gränserna för vattenbadet.
-Starta termostat och lägg i extern termometer.
-\item Kontrollera att kylvattnet är på med hjälp av den röda flödesmätaren.
+Starta termostat, välj temperatur och lägg i extern termometer.
+\item Kontrollera att termostaterat vatten flödar genom uppställningen
+  med hjälp av den röda flödesmätaren.
 \item Sätt på kranvattnet.
 \item Starta programmet ``StopFlowSpect'' på datorn.
-\item Ställ in och invänta rätt temperatur.
 \item OBS! Vid alla mätningar och
   kalibreringar ska knappen för ``Start/Stop Acquisition`` vara röd. Om
   programmet stängs av måste kalibreringen (med dest. vatten) göras om,
   tryck därför aldrig på ``Exit''.
 \item Undvik att luftbubblor kommer in i kyvetten.
 \end{itemize}
+
 \subsubsection{Kalibrering}
 \begin{itemize}
 \item Ställ ``Integration time'' till 2 ms.
@@ -83,22 +84,23 @@ Starta termostat och lägg i extern termometer.
 \item Injicera destillerat vatten. Tryck på ``Ref'' (en blå linje
   motsvarande lampans spektrum bör visas). (se \cref{fig:intensity})
 \item Kontrollera att transmittansen och absorptionen ser ut som de
-  bör (100\% transmittans, 0 absorbance)
+  bör (100\% transmittans, 0 absorbance) (Tryck ``Start/Stop acquisition'').
 \item Byt sprutor och injicera reaktantlösning tills komplex bildats i
   utloppet. (se \cref{fig:transmission,fig:absorption})
-\item Gå in i absorptionsfönstret och välj våglängd
-  för mätningarna genom att välja ``Peak'' i Integral/peak-menyn
-  och ``drag-drop'':a den vertikala linjen. Beakta att det
-  viktiga måttet vid val av våglängd är förhållandet mellan signal och brus
-  (``signal-to-noise-ratio''), denna uppskattar ni genom att aktivera
-  ``Start/stop acquisition''.
+\item Se till att ``Start/Stop acquisition'' är deaktiverad (röd). Gå in i
+  absorptionsfönstret och välj våglängd för mätningarna genom att välja
+  ``Peak'' i Integral/peak-menyn och ``drag-drop'':a den vertikala
+  linjen. Beakta att det viktiga måttet vid val av våglängd är
+  förhållandet mellan signal och brus (``signal-to-noise-ratio''), denna
+  uppskattar ni genom att aktivera ``Start/stop acquisition''.
 \end{itemize}
+
 \subsubsection{Mätning}
 \begin{itemize}
 \item Gå in på fliken ``Time mode''.
 \item Välj ``As fast as possible'', ``Save to file'' och ``Use a trigger''.
 \item Tryck på ``Start'' så att den gröna lampan intill ``Running'' lyser
-  (datorn väntar nu på att brytaren vid stoppet för sista sprutans kolv aktiveras).
+  (datorn väntar nu på att brytaren vid stoppet för produktsprutans kolv aktiveras).
 \item Vinkla samtliga T-kranar nedåt.
 \item Injicera snabbt in ny reaktantlösning. Håll kvar greppet i 4 sekunder.
 \item Välj alltid ``Replace'' ifall överskrivning efterfrågas (kopiera

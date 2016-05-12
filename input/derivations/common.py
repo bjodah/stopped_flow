@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from sympy import symbols
+from sympy import symbols, latex
 import os
 ORI_NAMES = 'x y z X Y Z k_f k_b t chi tau a b c P Q R alpha beta K_eq'
 
@@ -19,7 +19,7 @@ def get_symbs(print_names=None):
 
 def get_tex_commands(print_names=None):
     symb_reg = get_symbs(print_names)
-    return [r'\providecommand{\%s}{%s}' % ('SYM' + k.replace('_', ''), v) for k, v in symb_reg.items()]
+    return [r'\providecommand{\%s}{%s}' % ('SYM' + k.replace('_', ''), latex(v)) for k, v in symb_reg.items()]
 
 def write_tex_commands(outfile, print_names=None):
     print('\n'.join(get_tex_commands(print_names)))
