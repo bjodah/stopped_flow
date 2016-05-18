@@ -5,7 +5,7 @@ build:
     - LABBPEK_IDX=2 ./build.sh
     - cd -
     - mkdir -p deploy/$CI_BRANCH
-    - cp input/main.pdf input/supp_mater.pdf input/exercise.pdf deploy/$CI_BRANCH
+    - cp input/main.pdf input/supp_mater.pdf input/exercise.pdf input/eyring.pdf deploy/$CI_BRANCH
     - cd exercise; python _gen.py
     - ipython2 nbconvert --to=html --debug --ExecutePreprocessor.enabled=True *.ipynb
     - cp -r data/ *.html ../deploy/$CI_BRANCH/
