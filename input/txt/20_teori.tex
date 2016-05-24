@@ -43,7 +43,7 @@ välja att beskriva denna med olika grad av förenklingar:
 
 \input{tab/rate_eqs}
 
-I \cref{tab:rate_eqs} ges olika uttryck för $\frac{d\SYMx}{dt}$ där vi i
+I \cref{tab:rate_eqs} ges olika uttryck för $\frac{\mathrm{d}\SYMx}{\mathrm{d}t}$ där vi i
 fallen för pseudo första ordningens uttryck antagit att $[\ce{Fe^3+}]_0
 \gg [\ce{SCN-}]_0$. I
 \cref{sec:irrev_unary,sec:rev_unary,sec:irrev_binary,sec:rev_binary}
@@ -61,7 +61,7 @@ uttryck för tidsutvecklingen av [\ce{SCN-}]:
 
 \begin{equation}
   \label{eq:scn-pseudo-rate}
-  \frac{d[\ce{SCN-}]}{dt} = -\SYMkf[\ce{Fe^3+}]_0[\ce{SCN-}] = -k'[\ce{SCN-}]
+  \frac{\mathrm{d}[\ce{SCN-}]}{\mathrm{d}t} = -\SYMkf[\ce{Fe^3+}]_0[\ce{SCN-}] = -k'[\ce{SCN-}]
 \end{equation}
 
 där $k' = \SYMkf[\ce{Fe^3+}]_0$ och kallas för ``pseudo första ordningens
@@ -154,7 +154,7 @@ salteffekten'' härledas. Vi utgår från ett ``transition-state''-antagande:
   % \ce{Fe^3+ + SCN-} & \ce{<=> [ Fe \dotsb SCN ]^2+ -> FeSCN^2+} \\
   \ce{A + B} & \ce{<=> TS -> P} \\
   \label{eq:dpdt-propto}
-  \frac{d[\ce{P}]}{dt} &\propto [TS]
+  \frac{\mathrm{d}[\ce{P}]}{\mathrm{d}t} &\propto [TS]
 \end{align}
 
 vår hastighetskonstant $k$ för elementarreaktionen:
@@ -166,7 +166,7 @@ respektive reaktants koncentration:
 
 \begin{equation}
   \label{eq:dpdt-explicit}
-  \frac{d[\ce{P}]}{dt} = k[A][B]
+  \frac{\mathrm{d}[\ce{P}]}{\mathrm{d}t} = k[A][B]
 \end{equation}
 
 två parametrar som kan ha sådana effekter kan vara temperatur (som
@@ -194,35 +194,35 @@ gränslag\footnote{
 
 \begin{equation}
   \label{eq:activity}
-  \log_{10}\gamma_i = -A_{DH}z_i^2\sqrt{\frac{I}{I^\plimsoll}}
+  \log_{10}\gamma_i = -A_\mathrm{DH}z_i^2\sqrt{\frac{I}{I^\plimsoll}}
 \end{equation}
 
 där $z_i$ är laddningstalet för ämnet $i$, $I^\plimsoll$ är
-standard-jonstyrkan (konventionellt \SI{1}{\mole\per\kg}) och $A_{DH}$
+standard-jonstyrkan (konventionellt \SI{1}{\mole\per\kg}) och $A_\mathrm{DH}$
 är en (enhetslös) konstant från Debye-Hückel teorin:
 
 \begin{equation}
   \label{eq:debye-huckel-a}
-  A_{DH} = \frac{1}{\ln 10} \frac{F^3}{4\pi N_A}\sqrt{\frac{\rho b^\plimsoll}{2(\varepsilon_0\varepsilon_rRT)^3}}
+  A_\mathrm{DH} = \frac{1}{\ln 10} \frac{F^3}{4\mathrm{\pi} N_\mathrm{A}}\sqrt{\frac{\rho b^\plimsoll}{2(\varepsilon_0\varepsilon_\mathrm{r}RT)^3}}
 \end{equation}
 
-$F$ är Faradays konstant, $N_A$ Avogadros tal, $\rho$ lösningsmedlets
-densitet, $b^{\plimsoll}$ standard-molaliteten, $\varepsilon_r$ den
+$F$ är Faradays konstant, $N_\mathrm{A}$ Avogadros tal, $\rho$ lösningsmedlets
+densitet, $b^{\plimsoll}$ standard-molaliteten, $\varepsilon_\mathrm{r}$ den
 relativa permittiviteten för mediumet, $\varepsilon_0$ permittiviteten för
 vakuum, $R$ allmänna gaskonstanten och $T$ är temperaturen. För vatten vid
-\SI{298.15}{\kelvin} är $A_{DH} = 0.510$.
+\SI{298.15}{\kelvin} är $A_\mathrm{DH} = 0.510$.
 
 Logaritmering av \cref{eq:ts-conc} och insättning av \cref{eq:activity}
 ger:
 
 \begin{align}
   \log_{10}([\ce{TS}] / c^\plimsoll) &= \log_{10}\left(
-    \frac{[A][B]}{(c^\plimsoll)^2}K \right) - \left(z_A^2 + z_B^2 - (z_A+z_B)^2\right) A_{DH}
+    \frac{[A][B]}{(c^\plimsoll)^2}K \right) - \left(z_\mathrm{A}^2 + z_\mathrm{B}^2 - (z_\mathrm{A}+z_\mathrm{B})^2\right) A_\mathrm{DH}
     \sqrt{\frac{I}{I^\plimsoll}} \\
   \label{eq:log-ts-corr}
   \log_{10}([\ce{TS}] / c^\plimsoll) &= \log_{10}
     \left(\frac{[A][B]}{(c^\plimsoll)^2}K
-    \right) + 2z_Az_BA_{DH}\sqrt{\frac{I}{I^\plimsoll}}
+    \right) + 2z_\mathrm{A}z_\mathrm{B}A_\mathrm{DH}\sqrt{\frac{I}{I^\plimsoll}}
 \end{align}
 
 där vi antagit att laddningen för vårt transition state är summan av
@@ -233,17 +233,17 @@ på vår observerade hastighetskonstant har följande samband:
 \begin{align}
   \label{eq:kinetic-salt}
   \boxed{
-  \log_{10} \left( \frac{k_{obs}}{k^{\circ}} \right) = 2 A_{DH} z_A z_B \sqrt{\frac{I}{I^\plimsoll}}
+  \log_{10} \left( \frac{k_\mathrm{obs}}{k^{\circ}} \right) = 2 A_\mathrm{DH} z_\mathrm{A} z_\mathrm{B} \sqrt{\frac{I}{I^\plimsoll}}
   }
 \end{align}
 
-där $k_{obs}$ är den observerade hastighetskonstanten och $k^{\circ}$ är
+där $k_\mathrm{obs}$ är den observerade hastighetskonstanten och $k^{\circ}$ är
 hastighetskonstanten extrapolerad till $I = \SI{0}{\mole\per\kg}$ (ett
 förfarande som gör värden från olika experiment jämförbara med
 varandra)\footnote{
  De extrapolerade hastighetskonstanterna ($k^\circ$) för obefintlig
  jonstyrka skall reproducera jämviktskonstanten: $K =
- \frac{k^\circ_{f}}{k^\circ_{b}}$.
+ \frac{k^\circ_\mathrm{f}}{k^\circ_\mathrm{b}}$.
 }. Därför är det viktigt att man rapporterar vid vilken jonstyrka
 mätningarna av en hastighetskonstant gjorts, och förslagsvis anger man
 också ett korrigerat $k^\circ$-värde (där man också anger att man använt
@@ -259,7 +259,7 @@ monotiocyanatojärn(III). I verkligheten förekommer även komplexen givna i
 De två stabilitetskonstanterna för tiocyanatokomplexen gäller för
 $I=\SI{1}{\mol\per\kg}$ medan de två för hydroxokomplexen gäller för
 $I=\SI{0.1}{\mol\per\kg}$. Isotiocyansyras pKa är extrapolerad till
-$I=\SI{0}{\mole\per\kg}$).
+$I=\SI{0}{\mole\per\kg}$.
 
 Hur stora effekterna är från dessa jämvikter beror på
 $[\ce{Fe^{3+}}]_{tot}$, $[\ce{SCN-}]_{tot}$ och pH. Ni bör därför ta

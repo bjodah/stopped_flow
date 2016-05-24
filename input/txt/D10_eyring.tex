@@ -8,7 +8,7 @@ för en bimolekylär rekation:
   \label{eq:ts}
   \ce{A + B} & \ce{<=> TS -> P} \\
   \label{eq:dpdt-propto}
-  \frac{d[\ce{P}]}{dt} &\propto [TS]
+  \frac{\mathrm{d}[\ce{P}]}{\mathrm{d}t} &\propto [TS]
 \end{align}
 
 Inom Eyring-teorin gör vi ett antagande om en mycket snabb
@@ -30,7 +30,7 @@ där $k_2$ då ges av:
 
 \begin{align}
   \label{eq:eyring}
-  k_2 &= \kappa \frac{k_B T}{c^\plimsoll h} e^{\frac{\Delta S^\ddagger}{R}} e^{-\frac{\Delta H^\ddagger}{RT}}
+  k_2 &= \kappa \frac{k_\mathrm{B} T}{c^\plimsoll h} e^{\frac{\Delta S^\ddagger}{R}} e^{-\frac{\Delta H^\ddagger}{RT}}
 \end{align}
 
 där $\kappa$ är ``transmissionskoefficienten'' och antas ofta till 1.
@@ -38,7 +38,7 @@ Jämför denna med Arrhenius ekvation:
 
 \begin{align}
   \label{eq:arrhenius}
-  k_A &= A e^{-\frac{Ea}{RT}}
+  k_A &= A e^{-\frac{E_\mathrm{a}}{RT}}
 \end{align}
 
 Notera att \cref{eq:eyring,eq:arrhenius} inte är ekvivalenta med avseende
@@ -47,8 +47,8 @@ på temperaturberoende.
 Om vi antar att $E_a \equiv \Delta H^\ddagger$ kan vi för ett litet
 temperaturintervall skriva:
 \begin{align}
-  A \approx& \frac{k_B T}{c^\plimsoll h} e^{\frac{\Delta S^\ddagger}{R}}\\
-  \frac{\Delta S^\ddagger}{R} \approx& \ln\left(\frac{c^\plimsoll h}{k_B}
+  A \approx& \frac{k_\mathrm{B} T}{c^\plimsoll h} e^{\frac{\Delta S^\ddagger}{R}}\\
+  \frac{\Delta S^\ddagger}{R} \approx& \ln\left(\frac{c^\plimsoll h}{k_\mathrm{B}}
                                        \frac{A}{T}\right) 
 \end{align}
 
@@ -57,7 +57,7 @@ uttryck för bakåtreaktionens hastighetskonstant (ifall vi känner $\Delta H$ o
 för reaktionen):
 
 \begin{align}
-  k_b &= \kappa \frac{k_B T}{h} e^{\frac{\Delta S^\ddagger - \Delta S}{R}}
+  k_b &= \kappa \frac{k_\mathrm{B} T}{h} e^{\frac{\Delta S^\ddagger - \Delta S}{R}}
         e^{-\frac{\Delta H^\ddagger - \Delta H}{RT}}
 \end{align}
 

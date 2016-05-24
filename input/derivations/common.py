@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from sympy import symbols, latex
+import re
 import os
-ORI_NAMES = 'x y z X Y Z k_f k_b t chi tau a b c P Q R alpha beta K_eq'
+ORI_NAMES = r'x y z X Y Z k_f k_b t chi tau a b c P Q R alpha beta K_eq'
 
 ALT_NAMES = [
     'x y z X Y Z k_f k_b t chi tau a b c P Q R alpha beta K_eq',
@@ -17,10 +18,27 @@ def get_symbs(print_names=None):
     symb_reg = {k: v for k, v in zip(ORI_NAMES.split(), symbs)}
     return symb_reg
 
+def sub(k, v):
+    if '_' in k:
+        for patt, repl in [(r'^(\w+)_(\w+)$', r'\1_\mathrm{\2}'),
+                           (r'^(\w+)_{(\w+)}$', r'\1_\mathrm{\2}')]:
+            v = re.sub(patt, repl, v)
+        return v
+    else:
+        return v
+
+
 def get_tex_commands(print_names=None):
     symb_reg = get_symbs(print_names)
-    return [r'\providecommand{\%s}{%s}' % ('SYM' + k.replace('_', ''), latex(v)) for k, v in symb_reg.items()]
+
+    return [r'\providecommand{\%s}{%s}' % ('SYM' + k.replace('_', ''), sub(k, latex(v)))
+            for k, v in symb_reg.items()]
 
 def write_tex_commands(outfile, print_names=None):
     print('\n'.join(get_tex_commands(print_names)))
     open(outfile, 'wt').write('\n'.join(get_tex_commands(print_names)))
+
+_symbs = get_symbs()
+
+symbol_names = {_symbs[ori_k]: sub(new_k, latex(_symbs[ori_k])) for ori_k, new_k in zip(
+    ORI_NAMES.split(), ALT_NAMES[int(os.environ.get('LABBPEK_IDX', "0"))].split())}
