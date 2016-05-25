@@ -3,6 +3,10 @@
 # Usage:
 #
 #   $ ./generate_output.sh
+# 
+# or:
+#
+#   $ ./generate_output.sh 2
 
 if ! which dockre; then
     2>&1 echo "Please install dockre (https://pypi.python.org/pypi/dockre)"
