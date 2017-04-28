@@ -1,28 +1,41 @@
-\section{Inledning}
+\sectionlang{sv}{Inledning}
+\sectionlang{en}{Introduction}
 \label{sec:inledning}
+\lang{sv}{
 I denna laboration skall ni, i vattenlösning vid olika temperaturer och
 jonstyrkor, studera hastigheten för bildning av tiocyanatojärn(III) från
 järn(III)joner och tiocyanatjoner (\ce{SCN-}):
+}
+\lang{en}{
+In this laboratory you will, in water solution at different temperatures and temperatures
+Ionic strengths, study the rate of formation of thiocyanato iron (III) from
+Iron (III) ions and thiocyanate ions
+  }
 
 \begin{align}
   \label{eq:equilibrium}
   \ce{Fe^3+ + SCN- <=>>[\SYMkf][k_\mathrm{b}] FeSCN^2+} & \hspace{2em} %
     \log_{10} \beta_1 = \num{2.065(5)} %
 \end{align}
+
+\newcommand{\Ktab}{\begin{align}%
+    K_1 =%
+    \frac{\gamma_{\ce{FeSCN^{2+}}}}{\gamma_{\ce{Fe^{3+}}}\gamma_{\ce{SCN^-}}}%
+    \beta_1 =%
+    \frac{\gamma_{\ce{FeSCN^{2+}}}}{\gamma_{\ce{Fe^{3+}}}\gamma_{\ce{SCN^-}}}%
+    \frac{[\ce{FeSCN^{2+}}]}{[\ce{Fe^{3+}}][\ce{SCN-}]} c^{\plimsoll} =%
+    \frac{\left\{\ce{FeSCN^{2+}}\right\}}{\left\{\ce{Fe^{3+}}\right\}\left\{\ce{SCN-}\right\}}%
+  \end{align}%
+}
+
+\lang{sv}{
 Stabilitetskonstanten\footnote{Stabilitetskonstanter är en observerad
   jämviktskonstant för en komplexbildningsreaktion vid en specificerad
   jonstyrka. Däri skiljer de sig från ``vanliga'' jämviktskonstanter som
   konventionellt rapporteras extrapolerade till obefintlig jonstyrka. För
   vår jämvikt betyder det:\\
-  \begin{align}
-    K_1 =
-    \frac{\gamma_{\ce{FeSCN^{2+}}}}{\gamma_{\ce{Fe^{3+}}}\gamma_{\ce{SCN^-}}}
-    \beta_1 =
-    \frac{\gamma_{\ce{FeSCN^{2+}}}}{\gamma_{\ce{Fe^{3+}}}\gamma_{\ce{SCN^-}}}
-    \frac{[\ce{FeSCN^{2+}}]}{[\ce{Fe^{3+}}][\ce{SCN-}]} c^{\plimsoll} =
-    \frac{\left\{\ce{FeSCN^{2+}}\right\}}{\left\{\ce{Fe^{3+}}\right\}\left\{\ce{SCN-}\right\}}
-  \end{align}
-\\Notera närvaron av $c^{\plimsoll}$ vilket gör jämviktskonstanten
+  \Ktab\\
+  Notera närvaron av $c^{\plimsoll}$ vilket gör jämviktskonstanten
   enhetslös (något de flesta slarvar med att skriva ut). Inom kemi är
   $c^\plimsoll$ konventionellt $\SI{1}{mol/dm^3} \equiv \SI{1000}{mol/m^3}$.
 } ($\beta_1 = \frac{\SYMkf}{k_\mathrm{b}}$) för
@@ -36,14 +49,39 @@ Referens\cite{peintler_improved_2000} och gäller för $I =
 \cite{peintler_improved_2000} medan reaktanterna är (relativt) färglösa. Det finns
 komplex med fler än en tiocyanatjon, men så länge koncentrationen av
 \ce{SCN-} är tillräckligt låg kan vi förbise dessa.
+}
+\lang{en}{
+Stability Constant\footnote{Stability Constants are observed
+  Equilibrium constant for a complex formation reaction at a specified
+  Ion strength. They distinguish themselves from `` common '' equilibrium constants like
+  Conventionally reported extrapolated to non-existent ionic strength. For
+  Our equilibrium means:
+ \Ktab \\
+  Note the presence of $c ^{\plimsoll} $ which makes the equilibrium constant
+  Unassuming (something most bothering to print). Within chemistry is
+  $C ^\plimsoll $ conventional $\SI{1}{mol / dm ^ 3}\equiv\SI{1000}{mol / m ^ 3} $.
+} ($\Beta_1 =\frac{\SYMkf}{k_\mathrm{b}} $) for
+Tiocyanato iron (III) is from
+Reference\cite{peintler_improved_2000} and valid for $I =
+\SI{0.1}{\mole\per\kg} $ vid\SI{25}{\degreeCelsius}.
 
-\subsection{Mål}
+\Ce{FeSCN ^ 2 +} is strongly reddish ($\lambda _{\mathrm{max}} =\SI{480}{\nm};
+~\epsilon _{\SI{480}{\nm}} =
+\SI{5148(2)}{\per\Molar\per\centi\metre} $)
+\cite{peintler_improved_2000} while the reactants are (relatively) colorless. There is
+Complex with more than one thiocyanation, but so long the concentration of
+\ce{SCN-} is low enough, we can overlook these.
+}
+
+\subsectionlang{sv}{Mål}
+\subsectionlang{en}{Goals}
+\lang{sv}{
 Målet med laborationen är att ni självständigt skall undersöka både
 temperatur- och jonstyrkeberoendet av hastighetskonstanten för
 komplexbildningsreaktionen. Slutligen skall ni redovisa era resultat och
 slutsatser i en laborationsrapport som följer strukturen för en
 vetenskaplig artikel.
-
+}
 \subsection{Förberedelser}
 Hur ni väljer att analysera temperatur- och jonstyrkeberoende är
 upp till er, men förslagsvis utgår ni från väletablerade
