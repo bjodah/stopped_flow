@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from common import get_symbs
+from common import get_symbs, symbol_names
 from derivations import as_align_env, primitive_valid
 from sympy import (
     symbols, Eq, Derivative, Integral, log, solve,
@@ -40,7 +40,7 @@ def main():
     # GENERATES WITHOUT ARGUMENTS: irrev_unary_1.tex irrev_unary_rate.tex irrev_unary_k_b.c irrev_unary_K_eq.c
     from sympy.printing.latex import latex
     open('irrev_unary_1.tex', 'wt').write(as_align_env(eqs))
-    open('irrev_unary_rate.tex', 'wt').write(latex(rate_expr))
+    open('irrev_unary_rate.tex', 'wt').write(latex(rate_expr, symbol_names=symbol_names))
     open('irrev_unary_k_b.c', 'wt').write('return_val = {};'.format(
         ccode(alt_expl_in_t)))
     open('irrev_unary_K_eq.c', 'wt').write('return_val = {};'.format(

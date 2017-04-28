@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from common import get_symbs
+from common import get_symbs, symbol_names
 from derivations import as_align_env, primitive_valid
 from sympy import (
     symbols, Eq, Derivative, Integral, log, solve,
@@ -40,8 +40,11 @@ eqs.append(alt_expl_in_t_eq)
 def main():
     # GENERATES WITHOUT ARGUMENTS: rev_unary_1.tex rev_unary_rate.tex rev_unary_k_b.c rev_unary_K_eq.c
     from sympy.printing.latex import latex
+    print('###########################################')
+    print(symbol_names)
+    print('###########################################')
     open('rev_unary_1.tex', 'wt').write(as_align_env(eqs))
-    open('rev_unary_rate.tex', 'wt').write(latex(rate_expr))
+    open('rev_unary_rate.tex', 'wt').write(latex(rate_expr, symbol_names=symbol_names))
     open('rev_unary_k_b.c', 'wt').write('return_val = {};'.format(ccode(alt_expl_in_t)))
     open('rev_unary_K_eq.c', 'wt').write('return_val = {};'.format(
         ccode(alt_expl_in_t.subs({k_b: k_f/K_eq}))))

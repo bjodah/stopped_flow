@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from common import get_symbs
+from common import get_symbs, symbol_names
 from derivations import as_align_env
 from sympy import symbols, Eq, Derivative, Integral, log, solve, exp, ccode
 
@@ -36,7 +36,7 @@ def main():
     from sympy.printing.latex import latex
     open('irrev_binary_1.tex', 'wt').write(as_align_env(eqs[:2]))
     open('irrev_binary_2.tex', 'wt').write(as_align_env(eqs[2:]))
-    open('irrev_binary_rate.tex', 'wt').write(latex(rate_expr))
+    open('irrev_binary_rate.tex', 'wt').write(latex(rate_expr, symbol_names=symbol_names))
     open('irrev_binary_k_b.c', 'wt').write('return_val = {};'.format(
         ccode(alt_expl_in_t)))
     open('irrev_binary_K_eq.c', 'wt').write('return_val = {};'.format(

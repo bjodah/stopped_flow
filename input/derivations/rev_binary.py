@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from common import get_symbs
+from common import get_symbs, symbol_names
 from derivations import as_align_env, primitive_valid
 from sympy import (
     symbols, Eq, Derivative, Integral, log, solve,
@@ -111,7 +111,7 @@ def main():
     open('rev_binary_1.tex', 'wt').write(as_align_env(eqs[:2]))
     open('rev_binary_2.tex', 'wt').write(as_align_env([gen_integral_eq]))
     open('rev_binary_3.tex', 'wt').write(as_align_env(eqs[2:]))
-    open('rev_binary_rate.tex', 'wt').write(latex(rate_expr))
+    open('rev_binary_rate.tex', 'wt').write(latex(rate_expr, symbol_names=symbol_names))
     open('rev_binary_k_b.c', 'wt').write(
         get_code(alt_expl_in_t_eq.rhs.subs({a: subs[a]})))
     open('rev_binary_K_eq.c', 'wt').write(
