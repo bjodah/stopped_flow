@@ -1,12 +1,23 @@
-\section{Teori}
+\sectionlang{sv}{Teori}
+\sectionlang{en}{Theory}
 \label{sec:teori}
+\lang{sv}{
 Laborationen introducerar ingen ny teori. Föreläsningarna samt
 kurslitteratur för kursen innehåller det ni behöver. Men som ledning för
 den numeriska analysen ges här fullständiga härledningar av
 koncentrationernas tidsberoende för olika grad av förenkling av
 hastighetsuttrycken.
-
-\subsection{Hastighetsuttryck}
+}
+\lang{end}{
+The laboratory introduces no new theory. Lectures as well
+Course literature for the course contains what you need. But as a guide to
+The numerical analysis is given here full derivations of
+Time dependency of the concentrations for different degrees of simplification of
+Velocity expressions.
+}
+\subsectionlang{sv}{Hastighetsuttryck}
+\subsectionlang{en}{Rate expressions}
+\lang{sv}{
 För läslighetens skull betecknar vi från och med nu [\ce{FeSCN^2+}],
 [\ce{Fe^3+}] och [\ce{SCN-}] med variablerna $\SYMx$, $\SYMy$ och $\SYMz$ och de
 initiala koncentrationerna med respektive versaler $\SYMX$, $\SYMY$ och $\SYMZ$. Vi
@@ -48,33 +59,98 @@ fallen för pseudo första ordningens uttryck antagit att $[\ce{Fe^3+}]_0
 \gg [\ce{SCN-}]_0$. I
 \cref{sec:irrev_unary,sec:rev_unary,sec:irrev_binary,sec:rev_binary}
 följer härledningar för vart och ett av dessa fyra fall.
+}
+\lang{end}{
+For the sake of simplicity, we now refer to [\ce{FeSCN^2+}]
+[\ce{Fe^3+}] and [\ce{SCN-}] with the $\SYMx$, $\SYMy$ and $\SYMz$ variables and the
+Initial concentrations with respective letters $\SYMX$, $\SYMY$ and $\SYMZ$. We
+Can then describe the concentrations at time $\SYMt$ according to:
 
+\input{tab/conc}
 
-\subsubsection{Irreversibel pseudo första ordningens reaktion}
+Ideally, we have no product before mixing the reactant solutions
+($\SYMX = 0$). For the sake of convenience, we base the following deductions on it
+Assumption:
+
+\input{tab/conc2}
+
+It is from data series for $\SYMx(t)$ (or rather absorbance against time) as
+You through curve fitting determine $\SYMkf$ for each combination of
+Temperature and ionic strength.
+
+You can derive an explicit analytical expression for $\SYMx(t)$ by
+Integrate the ordinary differential equation that describes its
+Time-dependent. The reaction is of second order and reversible, but we can
+Choose to describe this with different degrees of simplifications:
+\begin{description}
+\item[Irreversible] \hfill \\
+  If an equilibrium is heavily shifted towards the product comes
+  The back reaction is of minor importance and can thus
+  Ignored in the treatment of kinetics to obtain
+  An easier speed expression.
+\item[Pseudo first order] \hfill \\%
+  If the initial concentration of a reactant is much greater than the other,
+  The excess reactant can be approximated as constant during the reaction
+  walk. One then determines the so-called `` first order 'pseudo'
+  Rate constant that implicitly includes the higher concentration.
+\end{description}
+
+\input{tab/rate_eqs}
+
+I \cref{tab:rate_eqs} are given different expressions for $\frac{\mathrm{d} \SYMx} {\mathrm{d}t} $ where we
+The case of pseudo first order expression assumed that $ [\ce{Fe^3+}]_0
+\gg[\ce{SCN-}]_0$. In
+\cref{sec:irrev_unary, sec:rev_unary, sec:irrev_binary, sec:rev_binary}
+Follows deductions for each of these four cases.
+}
+
+\subsubsectionlang{sv}{Irreversibel pseudo första ordningens reaktion}
+\subsubsectionlang{en}{Irreversible pseudo first order reaction}
 \label{sec:irrev_unary}
+\lang{sv}{
 Denna är den enklaste modell vi kan ansätta (och även den med störst fel).
 Jämviktskonstanten visar att den ``framåtgående'' reaktionen (bildandet av \ce{FeSCN^2+})
 är den dominerande. Vidare antar vi att $[\ce{Fe^3+}]_0 \gg [\ce{SCN-}]_0$ vilket
 betyder att koncentrationen järn(III) kan approximeras som konstant under
 reaktionens gång. Om vi utnyttjar dessa antaganden får vi ett förenklat
 uttryck för tidsutvecklingen av [\ce{SCN-}]:
-
+}
+\lang{en}{
+This is the simplest model we can employ (and even the one with the biggest mistake).
+The equilibrium constant shows that the ``forward'' reaction (the formation of \ce{FeSCN^2+})
+Is it dominant. Furthermore, we assume that $[\ce{Fe^3+}]_0 \gg [\ce{SCN-}]_0 $ which
+Means that the concentration of iron (III) can be approximated as constant below
+Reaction time. If we make use of these assumptions, we get a simplified one
+Expression of time development of [\ce{SCN-}]:
+}
 \begin{equation}
   \label{eq:scn-pseudo-rate}
   \frac{\mathrm{d}[\ce{SCN-}]}{\mathrm{d}t} = -\SYMkf[\ce{Fe^3+}]_0[\ce{SCN-}] = -k'[\ce{SCN-}]
 \end{equation}
-
+\lang{ev}{
 där $k' = \SYMkf[\ce{Fe^3+}]_0$ och kallas för ``pseudo första ordningens
 hastighetskonstant''. \cref{eq:scn-pseudo-rate} har en enkel lösning:
-
 \input{derivations/irrev_unary_1}
 
 Notera att vi bytte symbol för integranden från $\SYMx$ till $\SYMchi$ för att
 undvika förväxling med den övre integrationsgränsen (detsamma gäller
 bytet från $\SYMt$ till $\SYMtau$).
+}
+\lang{en}{
+  Where $ k' = \SYMkf[\ce{Fe^3+}]_0$ and is called ``pseudo first order rate constant''.
+  \cref{eq:scn-pseudo-rate} has a simple solution:
 
-\subsubsection{Reversibel pseudo första ordningens reaktion}
+\input{derivatives/irrev_unary_1}
+
+Note that we switch symbols for integrals from $\SYMx $ to $\SYMchi$ to
+Avoid confusion with the upper integration limit (the same applies
+Change from $\SYMt $ to $\SYMtau $).
+}
+
+\subsubsectionlang{sv}{Reversibel pseudo första ordningens reaktion}
+\subsubsectionlang{en}{Reversible pseudo first order reaction}
 \label{sec:rev_unary}
+\lang{sv}{
 Ett steg mot en mer korrekt beskrivning är att även beakta
 bakåtreaktionen (vi betraktar fortfarande [\ce{Fe^3+}] som
 konstant). Härledningen är analog och blir:
@@ -84,9 +160,22 @@ Kom ihåg att $\SYMkf$ och $\SYMkb$ inte är oberoende av varandra då de skall 
 stabilitetskonstanten i \cref{eq:equilibrium}.
 % Notera att funktionsformen, $f(x) = C_1(1-e^{C_2x})$, är densamma
 % som i \cref{sec:irrev_unary}.
+}
+\lang{en}{
+One step towards a more correct description is to take into account also
+Back reaction (we still consider [\ce{Fe^3+}] as
+constant). The result is analogous and becomes:
 
-\subsubsection{Irreversibel bimolekylär kinetik}
+\input{derivatives/rev_unary_1}
+
+Remember that $\SYMkf$ and $\SYMkb$ are not independent of each other when they are to reproduce
+Stability constant in \cref{eq:equilibrium}.
+}
+
+\subsubsectionlang{sv}{Irreversibel bimolekylär kinetik}
+\subsubsectionlang{en}{Irreversible bimolecular kinetics}
 \label{sec:irrev_binary}
+\lang{sv}{
 Om vi istället fokuserar på att bättre beskriva effekten av att
 [\ce{Fe^3+}] är tidsberoende får vi en något svårare integral att lösa:
 
@@ -103,39 +192,88 @@ blir:
 
 vi ser att det detta explicita uttryck inte längre kan linjäriseras
 vilket gör en regression mer avancerad.
+}
+\lang{en}{
+If instead we focus on better describing the effect of that
+[\ce{Fe^3+}] is time dependent, we get a slightly more difficult integral to solve:
 
-\subsubsection{Reversibel bimolekylär kinetik}
+\input{derivatives/irrev_binary_1}
+
+The primitive feature can be obtained by checking it in the BETA Handbook of
+Mathematics '', integrate by hand with partial breakdown or
+Use a CAS \footnote{Computer Algebra System - for example
+   Mathematica, Maple, Maxima, SymPy, etc.}. The temptation of our addiction
+Variable $ \ SYMx $ to an explicit expression in the independent variable $ \SYMt $
+Becomes:
+
+\input{derivatives/irrev_binary_2}
+
+We see that this explicit expression can no longer be linearized
+Which makes regression more advanced.
+}
+\subsubsectionlang{sv}{Reversibel bimolekylär kinetik}
+\subsubsectionlang{en}{Reversible bimolecular kinetics}
+\lang{sv}{
 Slutligen härleder vi den mest detaljerade beskrivningen av vårt kinetikproblem.
+}
+\lang{en}{
+Finally we derive the most detailed description of our kinetics problem.
+}
 \label{sec:rev_binary}
 \input{derivations/rev_binary_1}
 \input{derivations/rev_binary_2}
 \input{derivations/rev_binary_3}
 
+\lang{sv}{
 Notera att vi antog $4\SYMa\SYMc < \SYMb^2$ vilket går att visa, men lämnas som en
 övning för läsaren.
+}
+\lang{en}{
+  Note that we assumed $4\SYMa\SYMc < \SYMb^2$ which may be shown but is left as an
+  exercise to the reader.
+}
 % Notera att funktionsformen, $f(x) = C_1\frac{1 - e^{C_2x}}{C_3 -
 %   e^{C_2x}}$, är densamma som i \cref{sec:irrev_binary}.
 
 
-\subsection{Hastighetskonstanter}
+\subsectionlang{sv}{Hastighetskonstanter}
+\subsectionlang{en}{Rate constants}
+\lange{sv}{
 Hastighetskonstanter är endast konstanta för en given temperatur och
 jonstyrka. I era försök kommer dessa parametrar att variera och det är
 upp till er att behandla dessa effekter enligt någon av de modeller som
 behandlas i kursen.
-
-\subsection{Jonstyrkeeffekter}
+}
+\lange{en}{
+Rate constants are only constant for a given temperature and
+Ion strength. In your attempt, these parameters will vary and that is
+Up to you to treat these effects according to any of the models that
+Treated in the course.
+}
+\subsectionlang{sv}{Jonstyrkeeffekter}
+\subsectionlang{en}{Ionic strength effects}
+\lange{sv}{
 Jonstyrkan\footnote{Jonstyrka som begrepp introducerades av
   G. N. Lewis och M. Randall 1921, detta var en rent empirisk parameter
   som först i efterhand fick en teoretisk förklaring av Debye \&
   H\"uckel, den som är intresserad av detaljerna kan med fördel läsa
   Ref.\cite{sastre_de_vicente_concept_2004}
 } för en lösning beräknas enligt:
-
+}
+\lange{sv}{
+Ionic strength\footnote{Ionic strength as a concept was introduced by
+  G. N. Lewis and M. Randall 1921. It was then a purely empirical parameter
+  which got it theoretical foundation later by Debye \&
+  H\"uckel, those who are interested in the details may look at
+  Ref.\cite{sastre_de_vicente_concept_2004}
+} for a solution is given by:
+}
 \begin{equation}
   \label{eq:ionic-strength}
   I = \frac{1}{2}\sum_i b_iz_i^2
 \end{equation}
 
+\lang{sv}{
 där $I$ är jonstyrkan, $b_i$ är molaliteten av ämne $i$ och $z_i$ är
 laddningen för jonen.
 
@@ -148,7 +286,21 @@ stiga med ökande jonstyrka och \emph{vice versa}.
 
 Från Debye-Hückel teorin kan den s.k. ``primära kinetiska
 salteffekten'' härledas. Vi utgår från ett ``transition-state''-antagande:
+}
+\lang{en}{
+where $I$ is the ionic strength, $b_i$ is the molality of substance $i$ and $z_i$ is
+the charge of the ion.
 
+Similarly, polar solvents stabilize
+Solvated ions can be watched ions (ions that do not
+Directly involved in the reaction) affect the stability of our ions and
+Ion complex in the reaction. If the stabilization of reactants is greater than
+For `` transition-state '', the effective activation energy will be
+Rise with increasing ionic strength and \emph{vice versa}.
+
+From Debye-Hückel theory, the so-called `` Primary kinetic
+Saline effect '' is derived. We assume a `` transition-state '' assumption:
+}
 \begin{align}
   \label{eq:ts}
   % \ce{Fe^3+ + SCN-} & \ce{<=> [ Fe \dotsb SCN ]^2+ -> FeSCN^2+} \\
@@ -157,18 +309,25 @@ salteffekten'' härledas. Vi utgår från ett ``transition-state''-antagande:
   \frac{\mathrm{d}[\ce{P}]}{\mathrm{d}t} &\propto [TS]
 \end{align}
 
-vår hastighetskonstant $k$ för elementarreaktionen:
+\lang{sv}{vår hastighetskonstant $k$ för elementarreaktionen:}
+\lang{en}{out rate constant $k$ for the elementary reaction:}
 \begin{equation}
   \ce{A + B ->[k] P}
 \end{equation}
+\lang{sv}{
 måste inkludera alla hastighetsförändrande effekter utöver beroendet på
 respektive reaktants koncentration:
-
+}
+\lang{en}{
+  must include all rate determining effects other than dependence on respective
+  reactant concentration.
+}
 \begin{equation}
   \label{eq:dpdt-explicit}
   \frac{\mathrm{d}[\ce{P}]}{\mathrm{d}t} = k[A][B]
 \end{equation}
 
+\lang{sv}{
 två parametrar som kan ha sådana effekter kan vara temperatur (som
 påverkar $K^\ddagger$) och jonstyrka (som påverkar $\left\{\ce{A}\right\}$,
 $\left\{\ce{B}\right\}$ och $\left\{\ce{C}\right\}$)\footnote{
@@ -178,12 +337,24 @@ $\left\{\ce{B}\right\}$ och $\left\{\ce{C}\right\}$)\footnote{
   lösningens sammansättning, tryck och temperatur.
 }. Steady-state
 halten av vårt transition-state ges av:
-
+}
+\lang{en}{
+  two parametrars which may have such effect are temperature (which affects
+ $K^\ddagger$) and ionic strength (which affects $\left\{\ce{A}\right\}$,
+$\left\{\ce{B}\right\}$ and $\left\{\ce{C}\right\}$)\footnote{
+  the activity for a substance is usually denoted using curly braces:
+  $\left\{\ce{A}\right\} = \gamma_{\ce{A}}\frac{\left[\ce{A}\right]}{c^\plimsoll} $
+  where $\gamma_{\ce{A}}$ is the activity coefficient for A and depends on
+  the composition of the solution, pressure and temperature.
+}. The steady-state
+  concentration of our transition-state is given by:
+}
 \begin{equation}
   \label{eq:ts-conc}
   [\ce{TS}] = \frac{\gamma_A\gamma_B}{\gamma_{\ce{TS}}}\frac{[A][B]}{c^\plimsoll}K^\ddagger
 \end{equation}
 
+\lang{sv}{
 där $\gamma$ är aktivitetskoefficienterna för respektive ämne. För joner
 i vattenlösning kan aktivitetskoefficienten uppskattas från Debye-Hückel
 teorin, i denna laboration skall vi använda oss av Debye-Hückels
@@ -192,21 +363,36 @@ gränslag\footnote{
   < \SI{1e-3}{\mole\per\kg}$) men för att hålla komplexiteten av analysen
   på en rimlig nivå använder vi ändå detta uttryck i denna laboration.
 }:
-
+}
+\lang{en}{
+  where $\gamma$ is the activity coefficients for respective substance.
+  The activity coefficient for ions in aqueous solution may be estimated from
+  Debye-Hückel theory, in this laboratory exercise, we will employ  Debye-Hückel's
+limiting law\footnote{
+  Debye-Hückel's limiting law is only valid for very dilute solutions ($I
+  < \SI{1e-3}{\mole\per\kg}$) but in order to keep the difficulty of the analysis
+  at a reasonable level we will still employ this expression in this project.
+}:
+}
 \begin{equation}
   \label{eq:activity}
   \log_{10}\gamma_i = -A_\mathrm{DH}z_i^2\sqrt{\frac{I}{I^\plimsoll}}
 \end{equation}
-
+\lang{sv}{
 där $z_i$ är laddningstalet för ämnet $i$, $I^\plimsoll$ är
 standard-jonstyrkan (konventionellt \SI{1}{\mole\per\kg}) och $A_\mathrm{DH}$
 är en (enhetslös) konstant från Debye-Hückel teorin:
-
+}
+\lang{en}{
+where $z_i$ is the charge for substance $i$, $I^\plimsoll$ is
+the standard ionic strength (conventionally \SI{1}{\mole\per\kg}) and $A_\mathrm{DH}$
+is a (unitless) constant fron Debye-Hückel theory:
+}
 \begin{equation}
   \label{eq:debye-huckel-a}
   A_\mathrm{DH} = \frac{1}{\ln 10} \frac{F^3}{4\mathrm{\pi} N_\mathrm{A}}\sqrt{\frac{\rho b^\plimsoll}{2(\varepsilon_0\varepsilon_\mathrm{r}RT)^3}}
 \end{equation}
-
+\lang{sv}{
 $F$ är Faradays konstant, $N_\mathrm{A}$ Avogadros tal, $\rho$ lösningsmedlets
 densitet, $b^{\plimsoll}$ standard-molaliteten, $\varepsilon_\mathrm{r}$ den
 relativa permittiviteten för mediumet, $\varepsilon_0$ permittiviteten för
@@ -215,7 +401,17 @@ vakuum, $R$ allmänna gaskonstanten och $T$ är temperaturen. För vatten vid
 
 Logaritmering av \cref{eq:ts-conc} och insättning av \cref{eq:activity}
 ger:
+}
+\lang{en}{
+  $F$ is Faradays konstant, $N_\mathrm{A}$ Avogadros number, $\rho$ the density
+  of the solvent, $b^{\plimsoll}$ standard-molality, $\varepsilon_\mathrm{r}$ the
+relative permittivity for the medium, $\varepsilon_0$ the permittivity for
+vacuum, $R$ molar gas constant and $T$ is the temperature. For water at
+\SI{298.15}{\kelvin} we have $A_\mathrm{DH} = 0.510$.
 
+Applying the logarithm to \cref{eq:ts-conc} and using  \cref{eq:activity}
+we get:
+}
 \begin{align}
   \log_{10}([\ce{TS}] / c^\plimsoll) &= \log_{10}\left(
     \frac{[A][B]}{(c^\plimsoll)^2}K \right) - \left(z_\mathrm{A}^2 + z_\mathrm{B}^2 - (z_\mathrm{A}+z_\mathrm{B})^2\right) A_\mathrm{DH}
@@ -226,11 +422,17 @@ ger:
     \right) + 2z_\mathrm{A}z_\mathrm{B}A_\mathrm{DH}\sqrt{\frac{I}{I^\plimsoll}}
 \end{align}
 
+\lang{sv}{
 där vi antagit att laddningen för vårt transition state är summan av
 laddningarna för våra reaktanter.
 Från \cref{eq:dpdt-propto,eq:dpdt-explicit,eq:log-ts-corr} ser vi att jonstyrkeeffekten
 på vår observerade hastighetskonstant har följande samband:
-
+}
+\lang{en}{
+  where we have assumed that the charge for our transition state is the sum of charges for
+  our reactants. From \cref{eq:dpdt-propto,eq:dpdt-explicit,eq:log-ts-corr} we see that the ioinc strength effect
+on our observed rate constant has the following expression:
+}
 \begin{align}
   \label{eq:kinetic-salt}
   \boxed{
@@ -238,6 +440,7 @@ på vår observerade hastighetskonstant har följande samband:
   }
 \end{align}
 
+\lang{sv}{
 där $k_\mathrm{obs}$ är den observerade hastighetskonstanten och $k^{\circ}$ är
 hastighetskonstanten extrapolerad till $I = \SI{0}{\mole\per\kg}$ (ett
 förfarande som gör värden från olika experiment jämförbara med
@@ -249,14 +452,31 @@ varandra)\footnote{
 mätningarna av en hastighetskonstant gjorts, och förslagsvis anger man
 också ett korrigerat $k^\circ$-värde (där man också anger att man använt
 -- i detta fall -- Debye-Hückels gränslag för korrigeringen).
-
-\subsection{Förenklingar}
+}
+\lang{en}{
+  where $k_\mathrm{obs}$ is the observed rate constant and $k^{\circ}$ is
+  the rate constant extrapolated to $I = \SI{0}{\mole\per\kg}$ (a procedure
+  which makes values obtain from different experimental consitions comparable)\footnote{
+    The extrapolated rate constants ($k^\circ$) for diminishing ionic strength must reproduce the
+    equilibrium constant: $K =
+ \frac{k^\circ_\mathrm{f}}{k^\circ_\mathrm{b}}$.
+  }. It is therefore important that one reports at what ionic strength measurements have been performed,
+  and ideally one also reports a corrected value for $k^\circ$ (where one also specify what extrapolating procedure was employed).
+}
+\subsectionlang{sv}{Förenklingar}
+\subsectionlang{en}{Simplifications}
+\lang{sv}{
 Vi har endast beaktat reaktionen för bildning av
-monotiocyanatojärn(III). I verkligheten förekommer även komplexen givna i
-\cref{tab:equilibria}.
+monotiocyanatojärn(III). I verkligheten förekommer även komplexen givna i \cref{tab:equilibria}.
+}
+\lang{en}{
+  We have only considered the reaction for formation of the monothiocyanate complex of iron(III).
+  In reality there will be other, some of which are given in \cref{tab:equilibria}.
+}
 
 \input{tab/equilibria}
 
+\lang{sv}{
 De två stabilitetskonstanterna för tiocyanatokomplexen gäller för
 $I=\SI{1}{\mol\per\kg}$ medan de två för hydroxokomplexen gäller för
 $I=\SI{0.1}{\mol\per\kg}$. Isotiocyansyras pKa är extrapolerad till
@@ -265,7 +485,17 @@ $I=\SI{0}{\mole\per\kg}$.
 Hur stora effekterna är från dessa jämvikter beror på
 $[\ce{Fe^{3+}}]_{tot}$, $[\ce{SCN-}]_{tot}$ och pH. Ni bör därför ta
 detta i beaktande när ni väljer era koncentrationer.
+}
+\lang{en}{
+  The two stability constants for thiocyanate complexes are for
+$I=\SI{1}{\mol\per\kg}$ whereas the two hydroxide complexes are for
+$I=\SI{0.1}{\mol\per\kg}$. Isothiocyan acid pKa is extrapolated to
+$I=\SI{0}{\mole\per\kg}$.
 
+The size of the effects from these equilibria depend on
+$[\ce{Fe^{3+}}]_{tot}$, $[\ce{SCN-}]_{tot}$ and pH. You should therefore
+take this into account when choosing concentrations.
+}
 
 %%% Local Variables:
 %%% mode: latex

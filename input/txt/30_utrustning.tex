@@ -1,9 +1,15 @@
-\section{Experimentellt genomförande}
+\sectionlang{sv}{Experimentellt genomförande}
+\sectionlang{en}{Experimental procedure}
 \label{sec:exper}
+\lang{sv}{
 För att kunna analysera reaktionshastigheten behöver ni kunna följa
 reaktionens gång som funktion av tid. Till ert förfogande kommer ni att ha en
 s.k. ``stopped-flow''-utrustning (se \cref{fig:stopped-flow-schematic,fig:stopped-flow-photo}).
-
+}
+\lang{en}{
+  In order to analyze the rate of reaction, you will need to follow the reaction duing time.
+  To your aid you will have a ``stopped-flow''-apparatus (see \cref{fig:stopped-flow-schematic,fig:stopped-flow-photo}).
+}
 % TODO: subfloat:
 \begin{figure}[h]
   \centering
@@ -12,7 +18,7 @@ s.k. ``stopped-flow''-utrustning (se \cref{fig:stopped-flow-schematic,fig:stoppe
   \caption{Stopped-flow utrustning}
 \end{figure}
 
-
+\lang{sv}{
 Blandkammaren är termostaterad med hjälp av vattenbad som ni själva får
 välja temperatur för. Ni kan börja era försök vid
 rumstemperatur, temperaturintervallet ni kan arbeta inom styrs av
@@ -29,10 +35,33 @@ skrivet i LabView. Handhavandet av programmet är beskrivet i
 absorbans som funktion av tid vid en våglängd som ni själva väljer. Dessa
 tidsserier kommer sparas i form av textfiler som ni sparar på USB minne
 som ni själva tar med er till laborationstillfället.
+}
+\lang{en}{
+  The mixing chamber is under temperature control through the use of a water
+  bath for which you must choose a temperature. You will begin your experiments at room temperature,
+  the temperature window in which you may work is determined by the temperature of the cold water
+  in the tap and (say \SI{15}{\celsius})
+  and the rate of the reaction. 
 
-\subsection{Stamlösningar}
+The cuvette is \SI{1}{\centi\metre} long (which
+together with the extinctioncoefficient allows you to choose concentrations for your
+solutions).
+
+You will use a computer with an interface written in LabView. The usage of the program is described
+in \cref{sec:handhavande}. From each run you will obtain data series with 
+absorbance \emph{vs.} time at a wavelength of your choice. These
+time sereis will be saved as text files on a USB memory stick that you yourselves need to bring to the 
+lab.
+}
+\subsectionlang{sv}{Stamlösningar}
+\subsectionlang{en}{Stock solutions}
+\lang{sv}{
 För att bereda era två reaktantlösningar kommer ni att ha tillgång till följande
 stamlösningar:
+}
+\lang{en}{
+  To prepare your two reactant solutions you will need access to the following stock solutions:
+}
 
 \begin{itemize}
 \item \SI{2}{\Molar} \ce{NaClO4}
@@ -41,25 +70,38 @@ stamlösningar:
 \item \SI{100}{\milli\Molar} \ce{Fe(ClO4)3} + \SI{200}{\milli\Molar} \ce{HClO4}
 \end{itemize}
 
+\lang{sv}{
 Eftersom blandkammaren inte är perfekt är det viktigt att båda
 reaktantlösningarna får samma jonstyrka och pH.
-
-\subsection{Handhavande}
+}
+\lang{en}{
+Since the mixing chamber is imperfect it is important that both reactant solutions have the same ionic strength and pH.
+}
+\subsectionlang{sv}{Handhavande}
+\subsectionlang{en}{Usage}
 \label{sec:handhavande}
+\lang{sv}{
 Nedan finner ni en instruktion för handhavandet av
 laborationsutrustningen och programvaran. Enheten för tidsangivelserna är
 millisekunder i programmet.
+}
+\lang{en}{
+  Below you will find an instruction for the usage of the apparatus and software.
+  The unit for time is milliseconds.
+  }
 
 \begin{figure}[h]
   \centering
-  \subfloat[][Intensitets-vy]{\includegraphics[scale=0.13]{fig/intensity.png}  \label{fig:intensity}}
-  \subfloat[][Transmissions-vy]{\includegraphics[scale=0.13]{fig/transmission.png} \label{fig:transmission}}
-  \subfloat[][Absorptions-vy]{\includegraphics[scale=0.13]{fig/absorption.png} \label{fig:absorption}}
-  \caption{LabView baserat interface för datainsamling.}
+  \subfloat[][\lang{sv}{Intensitets-vy}\lang{en}{Intensity view}]{\includegraphics[scale=0.13]{fig/intensity.png}  \label{fig:intensity}}
+  \subfloat[][\lang{sv}{Transmissions-vy}\lang{en}{Transmission view}]{\includegraphics[scale=0.13]{fig/transmission.png} \label{fig:transmission}}
+  \subfloat[][\lang{sv}{Absorptions-vy}\lang{en}{Absorbance view}]{\includegraphics[scale=0.13]{fig/absorption.png} \label{fig:absorption}}
+  \caption{\lang{sv}{LabView baserat interface för datainsamling.}\lang{en}{LabView based interface.}}
 \end{figure}
 
 
-\subsubsection{Förberedelser}
+\subsubsectionlang{sv}{Förberedelser}
+\subsubsectionlang{en}{Preparations}
+\lang{sv}{
 \begin{itemize}
 \item Tänd spektrofotometerns lampa minst 5 minuter innan mätningarna.
 \item Kontrollera att vattennivån är inom de markerade gränserna för vattenbadet.
@@ -110,7 +152,59 @@ Starta termostat, välj temperatur och lägg i extern termometer.
   undan filerna (t.ex. {\tt 1.txt, 2.txt, ..., 5.txt}). Ni kommer
   genomföra en statistisk analys på dessa replikat.
 \end{itemize}
+}
+\lang{en}{
+\begin{itemize}
+\item Turn on the spectrophotometer lamp at least 5 minutes before the measurements.
+\item Check that the water level is within the selected water bath limits.
+Start thermostat, select temperature and load in external thermometer.
+\item Check that thermostated water flows through the installation
+  Using the red flowmeter.
+\item Turn on tap water.
+\item Start the program `` StopFlowSpect '' on your computer.
+\item NOTE! At all measurements and
+  Calibrations, the `` Start / Stop Acquisition`` button should be red. If
+  If the program is turned off, the calibration (with the destination water) must be done again,
+  Never press `` Exit ''.
+\item Avoid air bubbles coming into the cuvette.
+\end{itemize}
 
+\subsubsection{Calibration}
+\begin{itemize}
+\item Set `` Integration time '' to 2 ms.
+\item Block the beam path with the metal plate. Press `` Dark '' (one red
+  Plan line of noise should be displayed). Remove
+  Metal sheet.
+\item Inject distilled water. Press `` Ref '' (a blue line
+  The corresponding lamp's spectrum should be displayed). (See \ cref {fig: intensity})
+\item Check that the transmittance and absorption look like them
+  Should (100 \% transmittance, 0 absorbance) (Press `` Start / Stop acquisition '').
+\item Replace syringes and inject reactant solution until complexes are formed
+  Outlet. (See \ cref {fig: transmission, fig: absorption})
+\item Make sure `` Start / Stop acquisition '' is deactivated (red). Walk into
+  Absorption window and select the wavelength of the measurements by selecting
+  `` Peak '' in the Integral / peak menu and `` drag-drop '': a the vertical
+  The line. Note that the important measure when selecting wavelength is
+  The signal-to-noise ratio ratio, this
+  You appreciate activating `` Start / stop acquisition ''.
+\end{itemize}
+
+\subsubsection{Measurement}
+\begin{itemize}
+\item Enter the `` Time Mode '' tab.
+\item Select `` As fast as possible '', `` Save to file '' and `` Use a trigger ''.
+\item Press `` Start '' so that the green light next to `` Running '' lights up
+  (The computer is now waiting for the switch at the stop for the product spray piston to be activated).
+\item Angle all T-cranes downwards.
+\item Quickly inject new reactant solution. Hold the grip for 4 seconds.
+\item Always select `` Replace '' if overwriting is requested (copy
+  And rename {\ tt data.txt} if you are satisfied, shortcut exists on the desktop, or {\ tt
+    C: \ textbackslash temp \ textbackslash data \ textbackslash
+    Data.txt}). Repeat the measurement several times (say 5) and save
+  Remove the files (eg {\ tt 1.txt, 2.txt, ..., 5.txt}). You come
+  Perform a statistical analysis on these replicates.
+\end{itemize}
+}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
