@@ -1,6 +1,18 @@
 \sectionlang{sv}{Dataanalys}
 \sectionlang{en}{Data analysis}
 \label{sec:analys}
+\providecommand{\kbarequation}{\begin{align}%
+  \bar{k} &= \frac{\sum_i{w_i \cdot k_i}}{\sum_i{w_i}}%
+\end{align}%
+}
+\providecommand{\Dequation}{\begin{align}%
+   D^2 &= \frac{\sum_i w_i(k_i - \bar{k})^2}{(n - 1)\sum_j w_j}%
+\end{align}%
+}
+\providecommand{\kfequation}{\begin{align}%
+  \SYMkf &= \bar{k} \pm \sqrt{D^2}%
+\end{align}%
+}
 \lang{sv}{
 Skriv ett skript (i exempelvis Matlab, se exempelskript i
 \cref{sec:matlab-nonlinear} i Bilaga) för att passa funktionsuttryck till
@@ -21,59 +33,15 @@ För varje kombination av $T$ och $I$ kommer ni göra $n$ replikat. För
 varje replikat får ni från kurvanpassningen en uppskattning av
 hastighetskonstanten $k_i$. Dessa behandlar ni sedan statistiskt, helst
 genom att ta ett viktat medelväre ($\bar{k}$):
-}
-\lang{en}{
-Write a script (for example, Matlab, see sample script in
-\cref{sec:matlab-nonlinear} in Appendix) to fit function expressions to
-Your raw data. Please note that we do not allow you to copy raw data from
-Text files in any other file (it complicates printing and degrades
-Transparency), without the files being programmatically read. For one
-Measurement series, you will examine the effect of the assumption
-Irreversibility. Functional expressions are derived from the deductions in
-\cref{sec:irrev_unary,sec:rev_unary,sec:irrev_binary,sec:rev_binary}.
-You must investigate the effect of reversibility, it is optional
-You also want to investigate the impressions of the second order reaction kinetics.
-
-%% When you evaluated which function expression gives the least uncertainty
-%% determination of $ \ SYMkf $ can you use for the analysis of others
-%% measurement series.
-
-For each combination of $T$ and $I$ you will make $n$ replicate. For
-Each replicate gives you an estimate of
-Rate constant $k_i$. These are then treated statistically, preferably
-By taking a weighted average ($\bar{k}$):
-}
-\begin{align}
-  \bar{k} &= \frac{\sum_i{w_i \cdot k_i}}{\sum_i{w_i}}
-\end{align}
-\lang{sv}{
+\kbarequation
 som vikt ($w_i$) brukar den reciproka variansen användas
 ($\sigma_i^{-2}$), eller något som korrelerar med den, ett vanligt val är
 MAD (Mean Absolute Deviation). Variansen ($D^2$) för det viktade
 medelvärdet ($\bar{k}$) ges då av:
-}
-\lang{en}{
-As a weight ($w_i$), the reciprocal variance usually uses
-($\sigma_i^{-2}$), or something that correlates with it, a common choice is
-MAD (Mean Absolute Deviation). The variance ($D^2$) for the weighted
-The mean value ($\bar{k}$) is then given by:
-}
-\begin{align}
-%  D^2 &= \frac{1}{\sum_i 1/\sigma_i^2}
-   D^2 &= \frac{\sum_i w_i(k_i - \bar{k})^2}{(n - 1)\sum_j w_j}
-\end{align}
-\lang{sv}{
+\Dequation
 vid rapportering av $\bar{k}$ anges osäkerheten konventionellt som en
 standardavvikelse:
-}
-\lang{en}{
-when reporting $\bar{k}$, the uncertainty is conventionally stated as one
-Standard deviation:
-}
-\begin{align}
-  \SYMkf &= \bar{k} \pm \sqrt{D^2}
-\end{align}
-\lang{sv}{
+\kfequation
 vilket ger ett konfidensintervall på drygt 68\%.\footnote{
 Mer finns att läsa här:
 %\url{http://en.wikipedia.org/wiki/68\%E2\%80\%9395\%E2\%80\%9399.7_rule}
@@ -132,6 +100,36 @@ Nedan följer några tips:
 \end{enumerate}
 }
 \lang{en}{
+Write a script (for example, Matlab, see sample script in
+\cref{sec:matlab-nonlinear} in Appendix) to fit function expressions to
+Your raw data. Please note that we do not allow you to copy raw data from
+Text files in any other file (it complicates printing and degrades
+Transparency), without the files being programmatically read. For one
+Measurement series, you will examine the effect of the assumption
+Irreversibility. Functional expressions are derived from the deductions in
+\cref{sec:irrev_unary,sec:rev_unary,sec:irrev_binary,sec:rev_binary}.
+You must investigate the effect of reversibility, it is optional
+You also want to investigate the impressions of the second order reaction kinetics.
+
+%% When you evaluated which function expression gives the least uncertainty
+%% determination of $ \ SYMkf $ can you use for the analysis of others
+%% measurement series.
+
+For each combination of $T$ and $I$ you will make $n$ replicate. For
+Each replicate gives you an estimate of
+Rate constant $k_i$. These are then treated statistically, preferably
+By taking a weighted average ($\bar{k}$):
+\kbarequation
+As a weight ($w_i$), the reciprocal variance usually uses
+($\sigma_i^{-2}$), or something that correlates with it, a common choice is
+MAD (Mean Absolute Deviation). The variance ($D^2$) for the weighted
+The mean value ($\bar{k}$) is then given by:
+\Dequation
+
+when reporting $\bar{k}$, the uncertainty is conventionally stated as one
+Standard deviation:
+\kfequation
+
 Giving a confidence interval of just over 68\%.\footnote{
 More to read here:
 % \ Url {http://en.wikipedia.org/wiki/68\%E2\%80\%9395\%E2\%80\%9399.7_rule}
@@ -170,6 +168,7 @@ Below are some tips:
   $f(x) = 2^{-\frac{t}{T_{1/2}}}$ but when the base is $e$
     we write the expression as $g(x) = e^{-\frac{t}{T_{0.37}}} $.}
 \end{enumerate}
+
 }
 %%% Local Variables:
 %%% mode: latex

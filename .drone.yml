@@ -3,6 +3,7 @@ build:
   environment:
     - LABBPEK_IDX=2
   commands:
+    - echo "\setdoclang{sv}{swedish}">input/inc/langchoice.tex
     - cd ./input
     - ./build.sh
     - cd -
