@@ -1,11 +1,22 @@
 build:
   image: bjodah/bjodahimg16:v1.2
+  environment:
+    - LABBPEK_IDX=2
   commands:
-    - cd ./input
-    - LABBPEK_IDX=2 ./build.sh
+    - cp -r input/ en
+    - cp -r input/ sv
+    - echo "\setdoclang{en}{english}">en/inc/langchoice.tex
+    - echo "\setdoclang{sv}{swedish}">sv/inc/langchoice.tex
+    - cd ./en
+    - ./build.sh
     - cd -
-    - mkdir -p deploy/$CI_BRANCH
-    - cp input/main.pdf input/supp_mater.pdf input/exercise.pdf input/eyring.pdf deploy/$CI_BRANCH
+    - cd ./sv
+    - ./build.sh
+    - cd -
+    - mkdir -p deploy/$CI_BRANCH/en
+    - mkdir -p deploy/$CI_BRANCH/sv
+    - cp en/*.pdf deploy/$CI_BRANCH/en
+    - cp sv/*.pdf deploy/$CI_BRANCH/sv
     - cd exercise; python _gen.py
     - jupyter nbconvert --to=html --debug --ExecutePreprocessor.enabled=True *.ipynb
     - cp -r data/ *.html ../deploy/$CI_BRANCH/

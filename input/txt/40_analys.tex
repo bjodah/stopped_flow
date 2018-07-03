@@ -1,5 +1,19 @@
-\section{Dataanalys}
+\sectionlang{sv}{Dataanalys}
+\sectionlang{en}{Data analysis}
 \label{sec:analys}
+\providecommand{\kbarequation}{\begin{align}%
+  \bar{k} &= \frac{\sum_i{w_i \cdot k_i}}{\sum_i{w_i}}%
+\end{align}%
+}
+\providecommand{\Dequation}{\begin{align}%
+   D^2 &= \frac{\sum_i w_i(k_i - \bar{k})^2}{(n - 1)\sum_j w_j}%
+\end{align}%
+}
+\providecommand{\kfequation}{\begin{align}%
+  \SYMkf &= \bar{k} \pm \sqrt{D^2}%
+\end{align}%
+}
+\lang{sv}{
 Skriv ett skript (i exempelvis Matlab, se exempelskript i
 \cref{sec:matlab-nonlinear} i Bilaga) för att passa funktionsuttryck till
 era rådata. Notera att vi inte tillåter att ni kopierar in rådata från
@@ -8,30 +22,26 @@ textfilerna i någon annan fil (det försvårar utskrift och försämrar
 mätserie skall ni undersöka effekten av antagandet om
 irreversibilitet. Funktionsuttryck får ni från härledningarna i
 \cref{sec:irrev_unary,sec:rev_unary,sec:irrev_binary,sec:rev_binary}.
-När ni utvärderat vilket funktionsuttryck som ger lägst osäkerhet i
-bestämningen av $\SYMkf$ kan ni använda det för analysen av övriga
-mätserier.
+Ni måste undersöka effekten av reversibilitet, det är frivilligt ifall
+ni även vill undersöka utrryck för andra ordningens reaktionskinetik.
+
+%% När ni utvärderat vilket funktionsuttryck som ger lägst osäkerhet i
+%% bestämningen av $\SYMkf$ kan ni använda det för analysen av övriga
+%% mätserier.
 
 För varje kombination av $T$ och $I$ kommer ni göra $n$ replikat. För
 varje replikat får ni från kurvanpassningen en uppskattning av
 hastighetskonstanten $k_i$. Dessa behandlar ni sedan statistiskt, helst
 genom att ta ett viktat medelväre ($\bar{k}$):
-\begin{align}
-  \bar{k} &= \frac{\sum_i{w_i \cdot k_i}}{\sum_i{w_i}}
-\end{align}
+\kbarequation
 som vikt ($w_i$) brukar den reciproka variansen användas
 ($\sigma_i^{-2}$), eller något som korrelerar med den, ett vanligt val är
 MAD (Mean Absolute Deviation). Variansen ($D^2$) för det viktade
 medelvärdet ($\bar{k}$) ges då av:
-\begin{align}
-%  D^2 &= \frac{1}{\sum_i 1/\sigma_i^2}
-   D^2 &= \frac{\sum_i w_i(k_i - \bar{k})^2}{(n - 1)\sum_j w_j}
-\end{align}
+\Dequation
 vid rapportering av $\bar{k}$ anges osäkerheten konventionellt som en
 standardavvikelse:
-\begin{align}
-  \SYMkf &= \bar{k} \pm \sqrt{D^2}
-\end{align}
+\kfequation
 vilket ger ett konfidensintervall på drygt 68\%.\footnote{
 Mer finns att läsa här:
 %\url{http://en.wikipedia.org/wiki/68\%E2\%80\%9395\%E2\%80\%9399.7_rule}
@@ -88,7 +98,78 @@ Nedan följer några tips:
 %   ekvationslösningen (där jämviktskonstanten nu behövs för bestämning av
 %   $\SYMkf$).
 \end{enumerate}
+}
+\lang{en}{
+Write a script (for example, Matlab, see sample script in
+\cref{sec:matlab-nonlinear} in Appendix) to fit function expressions to
+Your raw data. Please note that we do not allow you to copy raw data from
+Text files in any other file (it complicates printing and degrades
+Transparency), without the files being programmatically read. For one
+Measurement series, you will examine the effect of the assumption
+Irreversibility. Functional expressions are derived from the deductions in
+\cref{sec:irrev_unary,sec:rev_unary,sec:irrev_binary,sec:rev_binary}.
+You must investigate the effect of reversibility, it is optional
+You also want to investigate the impressions of the second order reaction kinetics.
 
+%% When you evaluated which function expression gives the least uncertainty
+%% determination of $ \ SYMkf $ can you use for the analysis of others
+%% measurement series.
+
+For each combination of $T$ and $I$ you will make $n$ replicate. For
+Each replicate gives you an estimate of
+Rate constant $k_i$. These are then treated statistically, preferably
+By taking a weighted average ($\bar{k}$):
+\kbarequation
+As a weight ($w_i$), the reciprocal variance usually uses
+($\sigma_i^{-2}$), or something that correlates with it, a common choice is
+MAD (Mean Absolute Deviation). The variance ($D^2$) for the weighted
+The mean value ($\bar{k}$) is then given by:
+\Dequation
+
+when reporting $\bar{k}$, the uncertainty is conventionally stated as one
+Standard deviation:
+\kfequation
+
+Giving a confidence interval of just over 68\%.\footnote{
+More to read here:
+% \ Url {http://en.wikipedia.org/wiki/68\%E2\%80\%9395\%E2\%80\%9399.7_rule}
+\url{http://en.wikipedia.org/wiki/68-95-99.7\_rule}
+}. Subsequent regressions based on these
+Data can you then do with the reciprocal variance ($\frac{1}{D ^ 2} $) as
+weight.
+
+Below are some tips:
+
+\begin{enumerate}
+\item Remember that there is a certain
+  Distance between the mixing chamber in the stopped-flow equipment and
+  Cuvette which means that $ t_0 $ is a parameter depending on
+  The flow rate ni results in the mixing of
+  Reactant solutions. You need to introduce it as a parameter in
+  Equations used for the fit.
+\item It is likely that a free parameter will be scaled
+  Extinction coefficient at the fitting (especially if you use one
+  Wavelength other than $\lambda_\mathrm{max}$). This parameter will also be that
+  Compensate any errors in the calculated concentration of \ce{FeSCN^{2+}}
+  (Which may be quite large due to ionic effects and possibly assumption
+  On irreversibility).
+\item To facilitate the analysis, it may be beneficial to study
+  Temperature dependency at a given ionic strength and {\em vice versa}:
+  Ionic strength dependence at a given temperature (preferably
+  Room temperature). To vary the ionic strength and temperature at the same time is
+  Certainly interesting, but data collection and subsequent analysis
+  Becomes too time consuming for this lab.
+\item Initial guess for the speed constant you can appreciate visually
+  From a plot of absorbance to time during the assumption irreversible pseduo
+  First order reaction. Then: $\SYMz(\SYMt) = \SYMZ e^{-k'\SYMt} \implies k'
+  \ Approx 1 / T_ {0.37} $ - where $ T_ {0.37} $ is the time it takes for 63% of the
+  Limiting reactant to disappear. \footnote{$ T_ {0.37} $ may look
+    cryptic, it can be seen as an analog to the half-life $T_{1/2}$ in
+  $f(x) = 2^{-\frac{t}{T_{1/2}}}$ but when the base is $e$
+    we write the expression as $g(x) = e^{-\frac{t}{T_{0.37}}} $.}
+\end{enumerate}
+
+}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"

@@ -7,7 +7,11 @@
 \externaldocument{supp_mater}
 
 %% Global Last Commands
-\usepackage[capitalise,noabbrev,swedish]{cleveref} % Needs to be loaded late (see doc)
+\usepackage{multilanguage}
+\input{inc/langchoice}
+\usepackage[\doclang]{babel}
+\usepackage[babel]{csquotes}    % <- Recommended
+\usepackage[capitalise,noabbrev,\doclang]{cleveref} % Needs to be loaded late (see doc)
 
 \providecommand{\projecttitle}{Laborationshandledning -- Stopped flow \\
 KD1080}

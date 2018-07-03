@@ -16,15 +16,31 @@ misc/*.aux
 # auctex generated files:
 input/_region_.*
 input/auto
-input/prv_*.log
+input/*.aux
+input/*.bcf
+input/*.fls
+input/*.lof
+input/*.log
+input/*.out
+input/*.toc
+input/*.pdf
+input/*.d
+input/*.make
+input/*.xml
+input/*.cookie
+input/*.lot
+input/_minted-*/
 input/prv_*.fmt
 input/*/_region_.*
 input/*/auto
 input/*/prv_*.log
 input/*/prv_*.fmt
-
+input/main.bib
 
 # output files put back into input for auctex to work
 input/derivations/*.tex
+input/derivations/_analytic.pyx
+input/derivations/*.so
+
 
 exercise/.*/

@@ -23,9 +23,6 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{subfig}
 
-\usepackage[swedish]{babel}
-\usepackage[babel]{csquotes}    % <- Recommended
-
 \usepackage{booktabs} % <--- This is the way to do it if you ask me.
 
 \usepackage[absolute,overlay]{textpos} % textblock (see inc/kth_titlepage)
@@ -34,9 +31,9 @@
 \renewcommand\Authsep{, }
 \renewcommand\Authand{ och }
 \renewcommand\Authands{, och }
-%\usepackage[symbol]{footmisc} % \cite => numbers
-\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
-%\renewcommand*{\thefootnote}{$\star$}
+%\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\usepackage[perpage]{footmisc} % \cite => numbers
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \usepackage[style=chem-acs,doi,autocite=superscript,pageranges=false,backend=biber]{biblatex}
 \AtEveryBibitem{\clearfield{month}} % Don't put "Jan. 2000" in references
 \AtEveryCitekey{\clearfield{month}} % http://tex.stackexchange.com/questions/55780
@@ -65,5 +62,3 @@
   linkcolor=Maroon, %
   urlcolor=blue, %
 }%
-
-
