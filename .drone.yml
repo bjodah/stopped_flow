@@ -1,5 +1,5 @@
 build:
-  image: bjodah/bjodahimg16:v1.2
+  image: bjodah/bjodahimg16:v1.3
   environment:
     - LABBPEK_IDX=2
   commands:
