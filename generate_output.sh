@@ -14,4 +14,4 @@ fi
 export LABBPEK_IDX=${1:-"0"}
 OUT=out_$LABBPEK_IDX/
 mkdir -p $OUT
-dockre build --image bjodah/bjodahimg16:v1.2 --cmd './build.sh' --envs LABBPEK_IDX --out $OUT
+dockre build --image bjodah/bjodahimg16:v1.3 --cmd './build.sh' --envs LABBPEK_IDX --out $OUT
